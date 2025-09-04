@@ -79,7 +79,8 @@
     <script>
         $(document).ready(function() {
             let table = $('#candidates-table').DataTable({
-                "searching": true,
+                "searching": false,
+                "processing": true,
                 "ajax": {
                     "url": "/api/candidates",
                     "dataSrc": ""
