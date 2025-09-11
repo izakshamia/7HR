@@ -1,4 +1,10 @@
-from flask import Flask, render_template, abort, jsonify
+import sys
+import os
+
+# Add the 'server' directory to the Python path
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+
+from flask import Flask, render_template, jsonify
 from db_utils import Database
 import config
 
