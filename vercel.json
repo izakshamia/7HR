@@ -1,22 +1,24 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "server/card_info_server.py",
-      "use": "@vercel/python"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "outputDirectory": "dist" }
     },
     {
-      "src": "client/src/index.html",
-      "use": "@vercel/static"
+      "src": "api/index.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/server/card_info_server.py"
+      "dest": "api/index.py"
     },
     {
       "src": "/(.*)",
-      "dest": "/client/src/index.html"
+      "dest": "/dist/$1"
     }
   ]
 }
