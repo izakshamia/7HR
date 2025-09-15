@@ -2,7 +2,7 @@
 
 This project is a Telegram bot that retrieves candidate CVs from a PostgreSQL database and sends them to a specified Telegram chat. It also provides a web interface to view more details about each candidate.
 
-The project has a polyglot architecture, using both Python and Node.js.
+The project is written in Python.
 
 *   **Python:**
     *   The core bot logic is in `server/bot.py`. It polls the database for new candidates and sends them to Telegram.
@@ -11,15 +11,11 @@ The project has a polyglot architecture, using both Python and Node.js.
     *   `server/card_utils.py` formats the candidate data into a Markdown card for Telegram.
     *   `server/config.py` manages the project's configuration, pulling values from a `.env` file.
 
-*   **Node.js:**
-    *   `package.json` manages the project's dependencies. Although the core logic is in Python, Node.js is used for dependency management.
-
 # Building and Running
 
 ## Dependencies
 
-1.  **Node.js:** Install Node.js dependencies with `npm install`.
-2.  **Python:** Install Python dependencies with `pip install -r requirements.txt`.  **TODO:** A `requirements.txt` file is missing. You can create one based on the imports in the Python files (e.g., `requests`, `psycopg2-binary`, `Flask`, `python-dotenv`).
+Install Python dependencies with `pip install -r requirements.txt`.
 
 ## Configuration
 
@@ -60,3 +56,4 @@ The project has a polyglot architecture, using both Python and Node.js.
 *   **Database:** The project uses a PostgreSQL database. All database logic is contained in `server/db_utils.py`.
 *   **Telegram Bot:** The Telegram bot logic is in `server/bot.py`.
 *   **Web Interface:** A Flask web server provides a web interface to view candidate details.
+*   **Database Tools:** The `tools/db` directory contains scripts for database maintenance and administration.
