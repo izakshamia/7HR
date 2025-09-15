@@ -1,0 +1,22 @@
+{
+  "builds": [
+    {
+      "src": "server/card_info_server.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "client/src/index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/server/card_info_server.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/client/src/index.html"
+    }
+  ]
+}
