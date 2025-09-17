@@ -4,19 +4,23 @@ import { defineConfig } from "vite"
 
 export default defineConfig({
   root: "./client",
-  publicDir: "./client/public",
+  publicDir: "./public",
   build: {
-    outDir: "../dist",
+    outDir: "dist",
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`
+      }
+    }
   },
   plugins: [react()],
   resolve: {
-    alias: [
-      {
-        find: "@",
-        replacement: path.resolve(__dirname, "./client/src"),
-      },
-    ],
+    alias: {
+      "@": path.resolve(__dirname, "./client/src")
+    }
   },
   server: {
     port: 3000,

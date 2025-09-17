@@ -5,7 +5,7 @@
       "src": "client/package.json",
       "use": "@vercel/static-build",
       "config": { 
-        "distDir": "../dist",
+        "distDir": "dist",
         "installCommand": "cd client && npm install",
         "buildCommand": "cd client && npm run build"
       }
@@ -22,7 +22,18 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/$1"
+      "dest": "/client/dist/$1"
+    },
+    {
+      "src": "/(.*)",
+      "status": 200,
+      "headers": {
+        "Cache-Control": "public, max-age=0, must-revalidate"
+      },
+      "continue": true
     }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
